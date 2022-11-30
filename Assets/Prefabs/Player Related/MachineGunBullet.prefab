@@ -140,3 +140,4 @@ MonoBehaviour:
   impactEnemy: {fileID: 7201409775530098447, guid: 3ef3d57dd3138644889974f27faa1198, type: 3}
   bulletdamagef: 2
   destroyBullet: 0
+  Chest: {fileID: 1378900877134616525, guid: 3090409b53934d648837fa8dbc5460bf, type: 3}

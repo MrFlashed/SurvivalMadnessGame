@@ -14,6 +14,8 @@ public class MachineGunBullet : MonoBehaviour
     public float bulletdamagef;
     public float destroyBullet;
 
+    public GameObject Chest;
+
     void Start()
     {
 
@@ -44,6 +46,11 @@ public class MachineGunBullet : MonoBehaviour
                 if (other.gameObject.GetComponent<Health>().currentHealth <= 0)
                 {
                     MoneyScript.TotalBalance += other.gameObject.GetComponent<Enemy>().MoneyReward;
+                    int randnum = Random.Range(0, 200);
+                    if (randnum == 1)
+                    {
+                        Instantiate(Chest, transform.position, Quaternion.identity);
+                    }
                 }
                 break;
             case "EnemyNoLook":
@@ -53,6 +60,11 @@ public class MachineGunBullet : MonoBehaviour
                 if (other.gameObject.GetComponent<Health>().currentHealth <= 0)
                 {
                     MoneyScript.TotalBalance += other.gameObject.GetComponent<EnemyNoLook>().MoneyReward;
+                    int randnum = Random.Range(0, 200);
+                    if (randnum == 1)
+                    {
+                        Instantiate(Chest, transform.position, Quaternion.identity);
+                    }
                 }
                 break;
             case "Boss":
@@ -62,6 +74,7 @@ public class MachineGunBullet : MonoBehaviour
                 if (other.gameObject.GetComponent<Health>().currentHealth <= 0)
                 {
                     MoneyScript.TotalBalance += other.gameObject.GetComponent<Enemy>().MoneyReward;
+                    Instantiate(Chest, transform.position, Quaternion.identity);
                 }
                 break;
 
