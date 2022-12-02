@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class EnemyDropChest : MonoBehaviour
 {
-    public Text ChestDropInfoText;
+    private Text ChestDropInfoText;
+    private Collider2D Collider;
     public SpriteRenderer ChestSprite;
 
     public float RandNum;
@@ -13,9 +14,10 @@ public class EnemyDropChest : MonoBehaviour
     public float Timepassed1;
     public float Timepassed2;
 
-    void OnAwake()
+    void Start()
     {
         ChestDropInfoText = GameObject.Find("ChestDropInfoText").GetComponent<Text>();
+        Collider = this.GetComponent<BoxCollider2D>();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -28,6 +30,7 @@ public class EnemyDropChest : MonoBehaviour
         Debug.Log("work");
         if (collision.tag == "Player")
         {
+            ChestSprite.enabled = false;
             Debug.Log("work1");
             float RandNum = Random.Range(0, 10001);
 
@@ -87,11 +90,12 @@ public class EnemyDropChest : MonoBehaviour
             else if (RandNum <= 10000)
             {
                 var ForceFieldScript1 = GameObject.Find("ForceField").GetComponent<ForceFieldScript>();
-                ForceFieldScript1.ForceFieldDamage *= 1.25f;
-                ChestDropInfoText.text = "Forcefield damage +25%";
+                ForceFieldScript1.ForceFieldDamage *= 1.1f;
+                ChestDropInfoText.text = "Forcefield damage +10%";
             }
             Timepassed1 = 0;
             ChestSprite.enabled = false;
+            Collider.enabled = false;
         }
     }
     public void Update()

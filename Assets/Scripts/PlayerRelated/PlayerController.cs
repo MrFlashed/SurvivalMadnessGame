@@ -6,18 +6,16 @@ public class PlayerController : MonoBehaviour
 {
     //movement
     public Camera sceneCamera;
-
     public float moveSpeed;
     public Rigidbody2D rb;
-
     private Vector2 moveDirection;
     private Vector2 mousePosition;
 
     //Weapon
     public Weapon weapon;
+
     //WeaponDelay
     private float nextActionTime = 0.0f;
-
 
     // Update is called once per frame
     void Update()

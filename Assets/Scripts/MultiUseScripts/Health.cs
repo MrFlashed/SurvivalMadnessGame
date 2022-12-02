@@ -20,6 +20,11 @@ public class Health : MonoBehaviour
         InvokeRepeating("Regen", 1f, 1f);
     }
 
+    private void OnParticleCollision(GameObject other)
+    {
+        currentHealth -= 1;
+    }
+
     public void TakeDamage(float amount)
     {
         Debug.Log("HIT");

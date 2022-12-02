@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1378900877134616525
+--- !u!1 &8298002295616380857
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1378900877134616521}
-  - component: {fileID: 1378900877134616520}
-  - component: {fileID: 1378900877134616526}
-  - component: {fileID: 1378900877134616527}
+  - component: {fileID: 9060920959995240017}
+  - component: {fileID: 4234732976718139520}
+  - component: {fileID: 4374199283807440910}
+  - component: {fileID: 8599852693655430570}
+  - component: {fileID: 7241910045619017041}
   m_Layer: 0
-  m_Name: Chest
-  m_TagString: Chest
+  m_Name: LandMine
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1378900877134616521
+--- !u!4 &9060920959995240017
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378900877134616525}
+  m_GameObject: {fileID: 8298002295616380857}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.427824, y: 3.7181551, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 1.75, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1378900877134616520
+--- !u!212 &4234732976718139520
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378900877134616525}
+  m_GameObject: {fileID: 8298002295616380857}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,24 +75,24 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6d67395fd7d189440ac9fe4a1cd46dd7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ad27ae5ffe9b5544da94c1caacc210d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.22, y: 0.2}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1378900877134616526
-BoxCollider2D:
+--- !u!58 &4374199283807440910
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378900877134616525}
+  m_GameObject: {fileID: 8298002295616380857}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -99,33 +100,41 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.22, y: 0.2}
-    newSize: {x: 0.22, y: 0.2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.22, y: 0.2}
-  m_EdgeRadius: 0
---- !u!114 &1378900877134616527
+  m_Radius: 0.20499998
+--- !u!50 &8599852693655430570
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8298002295616380857}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &7241910045619017041
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378900877134616525}
+  m_GameObject: {fileID: 8298002295616380857}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb153edeb7a8f4745887fe624caede0a, type: 3}
+  m_Script: {fileID: 11500000, guid: 582f44ebd5801b146b49db7afdc3043a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpgradeText: {fileID: 1276384951283732865, guid: 5c4b70c27adc15449a8de156a433eb58, type: 3}
-  ChestSprite: {fileID: 1378900877134616520}
-  RandNum: 1
-  PermanentNum: 0
-  Timepassed1: 0
-  Timepassed2: 0
+  Explosion: {fileID: 7201409775530098447, guid: 72a4ad1acd6d2624eaeef88acf9919ac, type: 3}
+  TimePassed: 0
+  Damage: 0

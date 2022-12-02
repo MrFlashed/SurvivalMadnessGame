@@ -37,6 +37,13 @@ public class ForceFieldScript : MonoBehaviour
                             MoneyScript.TotalBalance += other.gameObject.GetComponent<Enemy>().MoneyReward;
                         }
                         break;
+                    case "EnemyNoLook":
+                        other.gameObject.GetComponent<Health>().TakeDamage(ForceFieldDamage);
+                        if (other.gameObject.GetComponent<Health>().currentHealth <= 0)
+                        {
+                            MoneyScript.TotalBalance += other.gameObject.GetComponent<Enemy>().MoneyReward;
+                        }
+                        break;
                     case "Boss":
                         other.gameObject.GetComponent<Health>().TakeDamage(ForceFieldDamage);
                         if (other.gameObject.GetComponent<Health>().currentHealth <= 0)

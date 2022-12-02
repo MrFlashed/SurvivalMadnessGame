@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
 
     void FixedUpdate()
     {
-        Destroy(gameObject, 2.5f);
+        Destroy(gameObject, 1f);
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -46,7 +46,7 @@ public class Bullet : MonoBehaviour
                 if (other.gameObject.GetComponent<Health>().currentHealth <= 0)
                 {
                     MoneyScript.TotalBalance += other.gameObject.GetComponent<Enemy>().MoneyReward;
-                    int randnum = Random.Range(0, 200);
+                    int randnum = Random.Range(0, 150);
                     if (randnum == 1)
                     {
                         Instantiate(Chest, transform.position, Quaternion.identity);
@@ -60,7 +60,7 @@ public class Bullet : MonoBehaviour
                 if (other.gameObject.GetComponent<Health>().currentHealth <= 0)
                 {
                     MoneyScript.TotalBalance += other.gameObject.GetComponent<EnemyNoLook>().MoneyReward;
-                    int randnum = Random.Range(0, 200);
+                    int randnum = Random.Range(0, 150);
                     if(randnum == 1)
                     {
                         Instantiate(Chest, transform.position, Quaternion.identity);
