@@ -29,9 +29,11 @@ public class Health : MonoBehaviour
     {
         Debug.Log("HIT");
         currentHealth -= amount;
+        var KillCountInt = GameObject.Find("TotalKillCount").GetComponent<TotalKillCounter>();
 
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
+            KillCountInt.TotalKillCountInt += 1;
             Destroy(gameObject);
         }
     }
