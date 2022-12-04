@@ -125,10 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChestSprite: {fileID: 1378900877134616520}
-  RandNum: 0
-  PermanentNum: 0
-  Timepassed1: 0
-  Timepassed2: 0
+  MapIcon: {fileID: 3495330084399026652}
 --- !u!1 &3495330084399026652
 GameObject:
   m_ObjectHideFlags: 0

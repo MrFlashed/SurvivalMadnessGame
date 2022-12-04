@@ -26,9 +26,6 @@ public class ShopGUI : MonoBehaviour
             case "2ndPistol":
                 UpgradeText.text = "Unlock Second Pistol ($" + UpgradeCost + ")";
                 break;
-            case "MachineGun Upgrade":
-                UpgradeText.text = "Unlock MachineGun ($" + UpgradeCost + ")";
-                break;
             case "Camera":
                 UpgradeText.text = "Vision + 25% ($" + UpgradeCost + ")";
                 break;
@@ -40,15 +37,6 @@ public class ShopGUI : MonoBehaviour
                 break;
             case "ForceField":
                 UpgradeText.text = "Unlock ForceField ($" + UpgradeCost + ")";
-                break;
-            case "FC Damage":
-                UpgradeText.text = "Damage + 30% ($" + UpgradeCost + ")";
-                break;
-            case "FC Cooldown":
-                UpgradeText.text = "Cooldown - 20% ($" + UpgradeCost + ")";
-                break;
-            case "FC Size":
-                UpgradeText.text = "Size + 20% ($" + UpgradeCost + ")";
                 break;
             case "Speed":
                 UpgradeText.text = "Speed + 10% ($" + UpgradeCost + ")";
@@ -104,34 +92,39 @@ public class ShopGUI : MonoBehaviour
                         WeaponScript3.TimePerBullet     = WeaponScript.TimePerBullet;
                         UpgradeText.text                = "sold out";
                     break;
-                case "MachineGun":
-                    var Pistols = GameObject.Find("Pistols");
-                    var MachineGun = UpgradeItem.GetComponent<Weapon>();
-
-                        UpgradeItem.SetActive(true);
-                        Pistols.SetActive(false);
-                        
-                        UpgradeCost = 0f;
+                case "MachineGun":                       
                         UpgradeLevel += 1;
                     switch (UpgradeLevel)
                     {
                         case 1:
-                            UpgradeText.text = "Damage + 100% ($" + UpgradeCost + ")";
+                            var Pistols = GameObject.Find("Pistols");
+                            var MachineGun = UpgradeItem.GetComponent<Weapon>();
+
+                            UpgradeItem.SetActive(true);
+                            Pistols.SetActive(false);
+                            UpgradeText.text = "Damage + 50% ($1250)";
+                            UpgradeCost = 1250;
+                            var MachineGunBulletObj = UpgradeExtra.GetComponent<MachineGunBullet>();
+                            MachineGunBulletObj.bulletdamagef *= 1.5f;
+                            Debug.Log(MachineGunBulletObj.bulletdamagef);
                             break;
                         case 2:
-                            UpgradeText.text = "Damage + 100% ($" + UpgradeCost + ")";
+                            UpgradeText.text = "Damage + 50% ($4000)";
+                            UpgradeCost = 4000;
                             var MachineGunBulletObj1 = UpgradeExtra.GetComponent<MachineGunBullet>();
-                            MachineGunBulletObj1.bulletdamagef *= 2;
+                            MachineGunBulletObj1.bulletdamagef *= 1.5f;
+                            Debug.Log(MachineGunBulletObj1.bulletdamagef);
                             break;
                         case 3:
-                            UpgradeText.text = "Damage + 50% ($" + UpgradeCost + ")";
+                            UpgradeText.text = "Damage + 50% ($8000)";
+                            UpgradeCost = 8000;
                             var MachineGunBulletObj2 = UpgradeExtra.GetComponent<MachineGunBullet>();
-                            MachineGunBulletObj2.bulletdamagef *= 2;
+                            MachineGunBulletObj2.bulletdamagef *= 1.5f;
+                            Debug.Log(MachineGunBulletObj2.bulletdamagef);
                             break;
                         case 4:
-                            UpgradeText.text = "Damage + 25% ($" + UpgradeCost + ")";
-                            var MachineGunBulletObj3 = UpgradeExtra.GetComponent<MachineGunBullet>();
-                            MachineGunBulletObj3.bulletdamagef *= 2;
+                            UpgradeCost = 0;
+                            UpgradeText.text = "MAX LEVEL";
                             break;
                     }
                     break;
@@ -152,15 +145,87 @@ public class ShopGUI : MonoBehaviour
                     break;
                 case "FC Damage":
                         var ForceFieldScript1 = GameObject.Find("ForceField").GetComponent<ForceFieldScript>();
-                        ForceFieldScript1.ForceFieldDamage *= UpgradePercentage;
+                        UpgradeText.text = "Damage + 30% ($" + UpgradeCost + ")";
+                        UpgradeLevel += 1;
+                    switch (UpgradeLevel)
+                    {
+                        case 1:
+                            ForceFieldScript1.ForceFieldDamage *= UpgradePercentage;
+                            break;
+                        case 2:
+                            ForceFieldScript1.ForceFieldDamage *= UpgradePercentage;
+                            break;
+                        case 3:
+                            ForceFieldScript1.ForceFieldDamage *= UpgradePercentage;
+                            break;
+                        case 4:
+                            ForceFieldScript1.ForceFieldDamage *= UpgradePercentage;
+                            break;
+                        case 5:
+                            UpgradeText.text = "MAX LEVEL";
+                            UpgradeCost = 0;
+                            break;
+                        case 6:
+                            UpgradeText.text = "MAX LEVEL";
+                            UpgradeLevel = 5;
+                            break;
+                    }
                     break;
                 case "FC Cooldown":
                         var ForceFieldScript2 = GameObject.Find("ForceField").GetComponent<ForceFieldScript>();
-                        ForceFieldScript2.ForceFieldCooldown *= UpgradePercentage;
+                        UpgradeText.text = "Cooldown - 20% ($" + UpgradeCost + ")";
+                        UpgradeLevel += 1;
+                    switch (UpgradeLevel)
+                    {
+                        case 1:
+                            ForceFieldScript2.ForceFieldCooldown *= UpgradePercentage;
+                            break;
+                        case 2:
+                            ForceFieldScript2.ForceFieldCooldown *= UpgradePercentage;
+                            break;
+                        case 3:
+                            ForceFieldScript2.ForceFieldCooldown *= UpgradePercentage;
+                            break;
+                        case 4:
+                            ForceFieldScript2.ForceFieldCooldown *= UpgradePercentage;
+                            break;
+                        case 5:
+                            UpgradeText.text = "MAX LEVEL";
+                            UpgradeCost = 0;
+                            break;
+                        case 6:
+                            UpgradeText.text = "MAX LEVEL";
+                            UpgradeLevel = 5;
+                            break;
+                    }
                     break;
                 case "FC Size":
                         var ForceFieldScript3 = GameObject.Find("ForceField").GetComponent<ForceFieldScript>();
-                        ForceFieldScript3.ForceFieldSize(UpgradePercentage);
+                        UpgradeText.text = "Size + 20% ($" + UpgradeCost + ")";
+                        UpgradeLevel += 1;
+                    switch (UpgradeLevel)
+                    {
+                        case 1:
+                            ForceFieldScript3.ForceFieldSize(UpgradePercentage);
+                            break;
+                        case 2:
+                            ForceFieldScript3.ForceFieldSize(UpgradePercentage);
+                            break;
+                        case 3:
+                            ForceFieldScript3.ForceFieldSize(UpgradePercentage);
+                            break;
+                        case 4:
+                            ForceFieldScript3.ForceFieldSize(UpgradePercentage);
+                            break;
+                        case 5:
+                            UpgradeText.text = "MAX LEVEL";
+                            UpgradeCost = 0;
+                            break;
+                        case 6:
+                            UpgradeText.text = "MAX LEVEL";
+                            UpgradeLevel = 5;
+                            break;
+                    }
                     break;
                 case "Speed":
                         PlayerControllerScript.moveSpeed *= UpgradePercentage;
@@ -169,7 +234,7 @@ public class ShopGUI : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not enough money");
+            Debug.Log("Not enough money:(");
         }
     }
 }

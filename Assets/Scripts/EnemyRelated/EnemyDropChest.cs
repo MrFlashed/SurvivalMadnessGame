@@ -8,11 +8,12 @@ public class EnemyDropChest : MonoBehaviour
     private Text ChestDropInfoText;
     private Collider2D Collider;
     public SpriteRenderer ChestSprite;
+    public GameObject MapIcon;
 
-    public float RandNum;
-    public int PermanentNum;
-    public float Timepassed1;
-    public float Timepassed2;
+    private float RandNum;
+    private int PermanentNum;
+    private float Timepassed1;
+    private float Timepassed2;
 
     void Start()
     {
@@ -96,6 +97,7 @@ public class EnemyDropChest : MonoBehaviour
             Timepassed1 = 0;
             ChestSprite.enabled = false;
             Collider.enabled = false;
+            MapIcon.SetActive(false);
         }
     }
     public void Update()
