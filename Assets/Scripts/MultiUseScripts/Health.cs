@@ -17,7 +17,7 @@ public class Health : MonoBehaviour
 
     void FixedUpdate()
     {
-        InvokeRepeating("Regen", 1f, 1f);
+         
     }
 
     private void OnParticleCollision(GameObject other)
@@ -52,5 +52,6 @@ public class Health : MonoBehaviour
     public void Regen()
     {
         currentHealth += regenHealth;
+        Debug.Log("Healed");
     }
 }

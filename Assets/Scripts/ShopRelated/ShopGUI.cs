@@ -11,7 +11,8 @@ public class ShopGUI : MonoBehaviour
     public float UpgradeCost;
     public float UpgradeCostMultiplier;
     public float UpgradePercentage;
-    private float UpgradeLevel = 0;
+    public float UpgradeLevel = 0;
+    private float Timepassed;
 
     public Text UpgradeText;
     public GameObject UpgradeButton;
@@ -145,7 +146,7 @@ public class ShopGUI : MonoBehaviour
                     break;
                 case "FC Damage":
                         var ForceFieldScript1 = GameObject.Find("ForceField").GetComponent<ForceFieldScript>();
-                        UpgradeText.text = "Damage + 30% ($" + UpgradeCost + ")";
+                        UpgradeText.text = "Damage + 15% ($" + UpgradeCost + ")";
                         UpgradeLevel += 1;
                     switch (UpgradeLevel)
                     {
@@ -162,6 +163,7 @@ public class ShopGUI : MonoBehaviour
                             ForceFieldScript1.ForceFieldDamage *= UpgradePercentage;
                             break;
                         case 5:
+                            ForceFieldScript1.ForceFieldDamage *= UpgradePercentage;
                             UpgradeText.text = "MAX LEVEL";
                             UpgradeCost = 0;
                             break;
@@ -171,9 +173,10 @@ public class ShopGUI : MonoBehaviour
                             break;
                     }
                     break;
-                case "FC Cooldown":
-                        var ForceFieldScript2 = GameObject.Find("ForceField").GetComponent<ForceFieldScript>();
-                        UpgradeText.text = "Cooldown - 20% ($" + UpgradeCost + ")";
+                case "ForceFieldTier2":
+                        var ForceFieldObj1 = GameObject.Find("ForceField");
+                        var ForceFieldScript2 = ForceFieldObj1.GetComponent<ForceFieldScript>();
+                        UpgradeText.text = "Cooldown - 10% ($" + UpgradeCost + ")";
                         UpgradeLevel += 1;
                     switch (UpgradeLevel)
                     {
@@ -190,12 +193,15 @@ public class ShopGUI : MonoBehaviour
                             ForceFieldScript2.ForceFieldCooldown *= UpgradePercentage;
                             break;
                         case 5:
-                            UpgradeText.text = "MAX LEVEL";
-                            UpgradeCost = 0;
+                            ForceFieldScript2.ForceFieldCooldown *= UpgradePercentage;
+                            UpgradeText.text = "Unlock Tier 2: ($10000)";
+                            UpgradeCost = 10000;
                             break;
                         case 6:
-                            UpgradeText.text = "MAX LEVEL";
-                            UpgradeLevel = 5;
+                            UpgradeExtra.SetActive(true);
+                            UpgradeItem.SetActive(true);
+                            GameObject.Find("ForceField").SetActive(false);
+                            GameObject.Find("ForceFieldUpgrades").SetActive(false);
                             break;
                     }
                     break;
@@ -214,10 +220,48 @@ public class ShopGUI : MonoBehaviour
                         case 3:
                             ForceFieldScript3.ForceFieldSize(UpgradePercentage);
                             break;
-                        case 4:
+                        case 5:
                             ForceFieldScript3.ForceFieldSize(UpgradePercentage);
+                            UpgradeText.text = "MAX LEVEL";
+                            UpgradeCost = 0;
+                            break;
+                        case 6:
+                            UpgradeText.text = "MAX LEVEL";
+                            UpgradeLevel = 5;
+                            break;
+                    }
+                    break;
+                case "ForceField Tier 2":
+                    var ForceFieldObj = GameObject.Find("ForceFieldTier2");
+                    var ForceFieldScript4 = ForceFieldObj.GetComponent<ForceFieldScript>();
+                    UpgradeExtra.SetActive(true);
+                    
+                    UpgradeText.text = "Cooldown/Damage -/+ 50% ($" + UpgradeCost + ")";
+                    UpgradeLevel += 1;
+                    switch (UpgradeLevel)
+                    {
+                        case 1:
+                            ForceFieldScript4.ForceFieldDamage *= 1.5f;
+                            ForceFieldScript4.ForceFieldCooldown *= 0.5f;
+                            UpgradeText.text = "Cooldown/Damage -/+ 30% ($" + UpgradeCost + ")";
+                            UpgradeCost = 15000;
+                            break;
+                        case 2:
+                            ForceFieldScript4.ForceFieldDamage *= 1.3f;
+                            ForceFieldScript4.ForceFieldCooldown *= 0.7f;
+                            UpgradeText.text = "Cooldown/Damage -/+ 30% ($" + UpgradeCost + ")";
+                            UpgradeCost = 20000;
+                            break;
+                        case 3:
+                            ForceFieldScript4.ForceFieldDamage *= 1.3f;
+                            ForceFieldScript4.ForceFieldCooldown *= 0.7f;
+                            UpgradeText.text = "Cooldown/Damage -/+ 30% ($" + UpgradeCost + ")";
+                            UpgradeCost = 30000;
                             break;
                         case 5:
+                            ForceFieldScript4.ForceFieldDamage *= 1.3f;
+                            ForceFieldScript4.ForceFieldCooldown *= 0.7f;
+                            UpgradeText.text = "Cooldown/Damage -/+ 30% ($" + UpgradeCost + ")";
                             UpgradeText.text = "MAX LEVEL";
                             UpgradeCost = 0;
                             break;
@@ -234,7 +278,14 @@ public class ShopGUI : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not enough money:(");
+            var BottomText = GameObject.Find("BottomText").GetComponent<Text>();
+            BottomText.text = "NOT ENOUGH MONEY";
+            Timepassed += Time.deltaTime;
+            if (Timepassed > 3)
+            {
+                BottomText.text = "";
+            }
+
         }
     }
 }

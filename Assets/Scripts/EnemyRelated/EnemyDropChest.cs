@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EnemyDropChest : MonoBehaviour
 {
-    private Text ChestDropInfoText;
+    private Text BottomText;
     private Collider2D Collider;
     public SpriteRenderer ChestSprite;
     public GameObject MapIcon;
@@ -17,7 +17,7 @@ public class EnemyDropChest : MonoBehaviour
 
     void Start()
     {
-        ChestDropInfoText = GameObject.Find("ChestDropInfoText").GetComponent<Text>();
+        BottomText = GameObject.Find("BottomText").GetComponent<Text>();
         Collider = this.GetComponent<BoxCollider2D>();
     }
 
@@ -38,34 +38,34 @@ public class EnemyDropChest : MonoBehaviour
             if (RandNum <= 2500)
             {
                 MoneyScript.TotalBalance += 10;
-                ChestDropInfoText.text = "You just received $10";
+                BottomText.text = "You just received $10";
             }
             else if (RandNum <= 4000)
             {
                 MoneyScript.TotalBalance += 100;
-                ChestDropInfoText.text = "You just received $100";
+                BottomText.text = "You just received $100";
             }
             else if (RandNum <= 4300)
             {
                 MoneyScript.TotalBalance += 250;
-                ChestDropInfoText.text = "You just received $250";
+                BottomText.text = "You just received $250";
             }
             else if (RandNum <= 4499)
             {
                 MoneyScript.TotalBalance += 1000;
-                ChestDropInfoText.text = "You just received $1000";
+                BottomText.text = "You just received $1000";
             }
             else if (RandNum == 4500)
             {
                 MoneyScript.TotalBalance += 1000;
-                ChestDropInfoText.text = "You just received $10000";
+                BottomText.text = "You just received $10000";
             }
             else if (RandNum <= 5000)
             {
                 //CameraObj.orthographicSize *= 2;
                 MoneyScript.TotalBalance += 100;
                 //UpgradeText.text = "Double vision for 60 seconds";
-                ChestDropInfoText.text = "You just received $100";
+                BottomText.text = "You just received $100";
                 Timepassed2 = 0;
                 PermanentNum = 1;
             }
@@ -74,25 +74,25 @@ public class EnemyDropChest : MonoBehaviour
                 //PlayerControllerScript.moveSpeed *= 2;
                 MoneyScript.TotalBalance += 100;
                 //UpgradeText.text = "Double speed for 60 seconds";
-                ChestDropInfoText.text = "You just received $100";
+                BottomText.text = "You just received $100";
                 Timepassed2 = 0;
                 PermanentNum = 2;
             }
             else if (RandNum <= 7000)
             {
                 HealthScript.regenHealth += 0.5f;
-                ChestDropInfoText.text = "PERMANENT regen +0.5HP/s";
+                BottomText.text = "PERMANENT regen +0.5HP/s";
             }
             else if (RandNum <= 9000)
             {
                 HealthScript.maxHealth += 50f;
-                ChestDropInfoText.text = "PERMANENT maxhealt +50HP";
+                BottomText.text = "PERMANENT maxhealt +50HP";
             }
             else if (RandNum <= 10000)
             {
                 var ForceFieldScript1 = GameObject.Find("ForceField").GetComponent<ForceFieldScript>();
                 ForceFieldScript1.ForceFieldDamage *= 1.1f;
-                ChestDropInfoText.text = "Forcefield damage +10%";
+                BottomText.text = "Forcefield damage +10%";
             }
             Timepassed1 = 0;
             ChestSprite.enabled = false;
@@ -111,7 +111,7 @@ public class EnemyDropChest : MonoBehaviour
 
         if (Timepassed1 > 5)
         {
-            ChestDropInfoText.text = "";
+            BottomText.text = "";
             Timepassed1 = 0;
         }
 
