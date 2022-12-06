@@ -9,6 +9,7 @@ TagManager:
   - Boss
   - EnemyNoLook
   - Chest
+  - Bullet
   layers:
   - Default
   - TransparentFX
