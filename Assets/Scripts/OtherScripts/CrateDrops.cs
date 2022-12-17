@@ -10,13 +10,20 @@ public class CrateDrops : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Player":
+                var PlayerHealthScript = collision.GetComponent<PlayerHealth>();
                 Debug.Log("Player");
                 switch (Drop.name)
                 {
                     case "Berry(Clone)":
-                        Debug.Log("berry");
-                        var PlayerHealthScript = collision.GetComponent<PlayerHealth>();
-                        PlayerHealthScript.currentHealth += 25;
+                        PlayerHealthScript.currentHealth += 50;
+                        if (PlayerHealthScript.currentHealth > PlayerHealthScript.maxHealth)
+                        {
+                            PlayerHealthScript.currentHealth = PlayerHealthScript.maxHealth;
+                        }
+                        Destroy(Drop);
+                        break;
+                    case "Meat(Clone)":
+                        PlayerHealthScript.currentHealth += 100;
                         if (PlayerHealthScript.currentHealth > PlayerHealthScript.maxHealth)
                         {
                             PlayerHealthScript.currentHealth = PlayerHealthScript.maxHealth;

@@ -34,7 +34,7 @@ public class ShopGUI : MonoBehaviour
                 UpgradeText.text = "Max Health + 100% ($" + UpgradeCost + ")";
                 break;
             case "Regen":
-                UpgradeText.text = "Regen + 0.2Hp/s ($" + UpgradeCost + ")";
+                UpgradeText.text = "Regen + 2Hp/s ($" + UpgradeCost + ")";
                 break;
             case "ForceField":
                 UpgradeText.text = "Unlock ForceField ($" + UpgradeCost + ")";

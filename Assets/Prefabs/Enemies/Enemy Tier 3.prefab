@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c433f030ff37fc47b0007ce7bb4a209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 4
   currentHealth: 0
   regenHealth: 0
 --- !u!114 &2871070486120736378
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2254141670127454161}
   speed: 2.25
-  Damage: 3
+  Damage: 30
   MoneyReward: 3
   TimePassed: 0
   offset: 90

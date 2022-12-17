@@ -6,16 +6,21 @@ public class Shortcuts : MonoBehaviour
 {
     public GameObject Shop;
     public GameObject PauseScreen;
-    public void FixedUpdate()
+
+    public float TimePassed;
+
+    public void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        TimePassed += Time.deltaTime;
+        if (Input.GetKey(KeyCode.Escape) && TimePassed >= 0.1f)
         {
+            TimePassed = 0;
             if (Shop.activeInHierarchy == true)
             {
                 Shop.SetActive(false);
                 Time.timeScale = 1;
             }
-            else if (PauseScreen.activeInHierarchy == true)
+            else if (PauseScreen.activeInHierarchy == false)
             {
                 PauseScreen.SetActive(true);
                 Time.timeScale = 0;

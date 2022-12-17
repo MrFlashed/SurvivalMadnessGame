@@ -964,6 +964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Shop: {fileID: 557503304}
   PauseScreen: {fileID: 675412205}
+  TimePassed: 0
 --- !u!4 &116759856
 Transform:
   m_ObjectHideFlags: 0
@@ -2869,7 +2870,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &406797465
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5495,7 +5496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &675412206
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9480,7 +9481,7 @@ MonoBehaviour:
   UpgradeExtra: {fileID: 0}
   UpgradeCost: 5
   UpgradeCostMultiplier: 2
-  UpgradePercentage: 0.2
+  UpgradePercentage: 2
   UpgradeLevel: 0
   UpgradeText: {fileID: 158900895}
   UpgradeButton: {fileID: 531282426}
@@ -16701,7 +16702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5b639721b4d7845b86b364042027bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 100
   currentHealth: 0
   regenHealth: 0
   ImmunityTime: 0

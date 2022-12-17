@@ -270,7 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: -2865443227239676308}
   speed: 5.5
-  Damage: 10
+  Damage: 100
   MoneyReward: 1000
   TimePassed: 0
   offset: 0

@@ -126,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Drops:
   - {fileID: 4359429376853163111, guid: f19fe984a43085e4db8d1108fb3f4f29, type: 3}
+  - {fileID: 4359429376853163111, guid: 65c92e26431b8434885587a7bf0d1f6a, type: 3}
   CrateDamaged: {fileID: 21300000, guid: d4d51b2f23ce56a4aa277beac059895c, type: 3}
 --- !u!1 &8661677118157847618
 GameObject:
