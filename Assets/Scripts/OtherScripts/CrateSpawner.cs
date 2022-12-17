@@ -12,7 +12,7 @@ public class CrateSpawner : MonoBehaviour
         var RandomCratePoint = CrateSpawnPoints[Random.Range(0, CrateSpawnPoints.Length)];
         var CrateVariants = Crate[Random.Range(0, Crate.Length)];
         TimePassed += Time.deltaTime;
-        if (TimePassed > 5)
+        if (TimePassed > 90)
         {
             TimePassed = 0f;
             Instantiate(CrateVariants, RandomCratePoint.position, Quaternion.identity);

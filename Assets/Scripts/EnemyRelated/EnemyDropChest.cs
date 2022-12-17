@@ -10,29 +10,30 @@ public class EnemyDropChest : MonoBehaviour
     public SpriteRenderer ChestSprite;
     public GameObject MapIcon;
 
+    private float checkerF;
     private float RandNum;
     private int PermanentNum;
     private float Timepassed1;
     private float Timepassed2;
-
     void Start()
     {
         BottomText = GameObject.Find("BottomText").GetComponent<Text>();
         Collider = this.GetComponent<BoxCollider2D>();
     }
-
     public void OnTriggerEnter2D(Collider2D collision)
     {
         var MoneyScript = GameObject.Find("Money").GetComponent<Money>();
         var HealthScript = GameObject.Find("Player").GetComponent<PlayerHealth>();
         var CameraObj = GameObject.Find("Camera").GetComponent<Camera>();
         var PlayerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
-        Timepassed1 = 0;
-        Debug.Log("work");
         if (collision.tag == "Player")
         {
-            ChestSprite.enabled = false;
+            checkerF = 1;
+            Timepassed1 = 0;
             Debug.Log("work1");
+            ChestSprite.enabled = false;
+            Collider.enabled = false;
+            MapIcon.SetActive(false);
             float RandNum = Random.Range(0, 10001);
 
             if (RandNum <= 2500)
@@ -80,51 +81,69 @@ public class EnemyDropChest : MonoBehaviour
             }
             else if (RandNum <= 7000)
             {
-                HealthScript.regenHealth += 0.5f;
-                BottomText.text = "PERMANENT regen +0.5HP/s";
+                HealthScript.regenHealth += 0.2f;
+                BottomText.text = "regen +0.2HP/s";
             }
-            else if (RandNum <= 9000)
+            else if (RandNum <= 7500)
+            {
+                HealthScript.regenHealth += 0.4f;
+                BottomText.text = "regen +0.4HP/s";
+            }
+            else if (RandNum <= 7750)
+            {
+                HealthScript.regenHealth += 0.6f;
+                BottomText.text = "regen +0.4HP/s";
+            }
+            else if (RandNum <= 7900)
+            {
+                HealthScript.regenHealth += 0.8f;
+                BottomText.text = "regen +0.8HP/s";
+            }
+            else if (RandNum <= 7900)
+            {
+                HealthScript.regenHealth += 1f;
+                BottomText.text = "regen +1HP/s";
+            }
+            else if (RandNum <= 8500)
+            {
+                HealthScript.maxHealth += 25f;
+                BottomText.text = "maxhealt +25HP";
+            }
+            else if (RandNum <= 8750)
             {
                 HealthScript.maxHealth += 50f;
-                BottomText.text = "PERMANENT maxhealt +50HP";
+                BottomText.text = "maxhealt +50HP";
+            }
+            else if (RandNum <= 9200)
+            {
+                var ForceFieldScript1 = GameObject.Find("ForceField").GetComponent<ForceFieldScript>();
+                var ForceFieldScript2 = GameObject.Find("ForceFieldTier2").GetComponent<ForceFieldScript>();
+                ForceFieldScript2.ForceFieldDamage *= 1.05f;
+                ForceFieldScript1.ForceFieldDamage *= 1.05f;
+                BottomText.text = "Forcefield damage +5%";
             }
             else if (RandNum <= 10000)
             {
-                var ForceFieldScript1 = GameObject.Find("ForceField").GetComponent<ForceFieldScript>();
-                ForceFieldScript1.ForceFieldDamage *= 1.1f;
-                BottomText.text = "Forcefield damage +10%";
+                MoneyScript.TotalBalance += 50;
+                BottomText.text = "You just received $50";
             }
-            Timepassed1 = 0;
-            ChestSprite.enabled = false;
-            Collider.enabled = false;
-            MapIcon.SetActive(false);
         }
     }
-    public void Update()
+    public void FixedUpdate()
     {
         var MoneyScript = GameObject.Find("Money").GetComponent<Money>();
         var HealthScript = GameObject.Find("Player").GetComponent<PlayerHealth>();
         var CameraObj = GameObject.Find("Camera").GetComponent<Camera>();
         var PlayerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
 
-        Timepassed1 += Time.deltaTime;
-
-        if (Timepassed1 > 5)
+        if (checkerF == 1)
         {
-            BottomText.text = "";
-            Timepassed1 = 0;
-        }
-
-        Timepassed2 += Time.deltaTime;
-        if (Timepassed2 >= 30)
-        {
-            if (PermanentNum == 1)
+            Timepassed1 += Time.deltaTime;
+            if (Timepassed1 > 5)
             {
-                //CameraObj.orthographicSize *= 0.5f;
-            }
-            else if (PermanentNum == 2)
-            {
-                //PlayerControllerScript.moveSpeed *= 0.5f;
+                BottomText.text = "";
+                Timepassed1 = 0;
+                checkerF = 0;
             }
         }
         Destroy(gameObject, 60);

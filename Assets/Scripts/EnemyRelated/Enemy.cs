@@ -34,9 +34,14 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate()
     {
+        TimePassed += Time.deltaTime;
         //Move towards Player (movement)
         Vector2 pos = Vector2.MoveTowards(transform.position, target.position, speed * Time.fixedDeltaTime);
         rb.MovePosition(pos);
+        if (TimePassed == 90)
+        {
+
+        }
     }
 
     void LateUpdate()
@@ -52,7 +57,6 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        TimePassed += Time.deltaTime;
         if (TimePassed > 1.5f)
         {
             TimePassed = 0;

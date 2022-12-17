@@ -19,10 +19,12 @@ public class Crate : MonoBehaviour
                     var RanDrop = Drops[Random.Range(0, Drops.Length)];
                     Instantiate(RanDrop, transform.position, Quaternion.identity);
                     Destroy(gameObject);
+                    Destroy(collision.gameObject);
                 }
                 else if (CrateHP == 1)
                 {
                     GetComponent<SpriteRenderer>().sprite = CrateDamaged;
+                    Destroy(collision.gameObject);
                 }
                 break;
         }

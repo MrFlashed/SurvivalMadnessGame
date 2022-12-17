@@ -46,7 +46,7 @@ public class Bullet : MonoBehaviour
                 if (other.gameObject.GetComponent<Health>().currentHealth <= 0)
                 {
                     MoneyScript.TotalBalance += other.gameObject.GetComponent<Enemy>().MoneyReward;
-                    int randnum = Random.Range(0, 150);
+                    int randnum = Random.Range(0, 200);
                     if (randnum == 1)
                     {
                         Instantiate(Chest, transform.position, Quaternion.identity);
@@ -60,7 +60,7 @@ public class Bullet : MonoBehaviour
                 if (other.gameObject.GetComponent<Health>().currentHealth <= 0)
                 {
                     MoneyScript.TotalBalance += other.gameObject.GetComponent<EnemyNoLook>().MoneyReward;
-                    int randnum = Random.Range(0, 150);
+                    int randnum = Random.Range(0, 200);
                     if(randnum == 1)
                     {
                         Instantiate(Chest, transform.position, Quaternion.identity);

@@ -5,46 +5,49 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class Laser : MonoBehaviour
 {
-    public Camera playerCamera;
-    public Transform laserOrigin;
-    public float gunRange = 50f;
-    public float fireRate = 0.2f;
-    public float laserDuration = 0.05f;
+    // The laser beam game object
+    public GameObject laserBeam;
 
-    LineRenderer laserLine;
-    float fireTimer;
+    // The damage the laser beam does to objects it hits
+    public int damage = 10;
 
-    void Awake()
-    {
-        laserLine = GetComponent<LineRenderer>();
-    }
+    // The speed at which the laser beam moves
+    public float beamSpeed = 100f;
 
+    // Update is called once per frame
     void Update()
     {
-        fireTimer += Time.deltaTime;
-        if (Input.GetButtonDown("Fire1") && fireTimer > fireRate)
+        // If the user presses the space bar
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            fireTimer = 0;
-            laserLine.SetPosition(0, laserOrigin.position);
-            Vector3 rayOrigin = playerCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
-            RaycastHit hit;
-            if (Physics.Raycast(rayOrigin, playerCamera.transform.forward, out hit, gunRange))
-            {
-                laserLine.SetPosition(1, hit.point);
-                Destroy(hit.transform.gameObject);
-            }
-            else
-            {
-                laserLine.SetPosition(1, rayOrigin + (playerCamera.transform.forward * gunRange));
-            }
-            StartCoroutine(ShootLaser());
+            // Create a new laser beam game object at the position of the laser gun
+            GameObject beam = Instantiate(laserBeam, transform.position, Quaternion.identity);
+
+            // Get the Rigidbody component of the laser beam
+            Rigidbody rb = beam.GetComponent<Rigidbody>();
+
+            // Set the velocity of the laser beam to move in the forward direction of the laser gun
+            rb.velocity = transform.forward * beamSpeed;
+
+            // Destroy the laser beam after 1 second
+            Destroy(beam, 1f);
         }
     }
 
-    IEnumerator ShootLaser()
+    // Function called when the laser beam collides with another object
+    void OnTriggerEnter(Collider other)
     {
-        laserLine.enabled = true;
-        yield return new WaitForSeconds(laserDuration);
-        laserLine.enabled = false;
+        // If the laser beam hits an object with a Health script
+        if (other.gameObject.GetComponent<Health>() != null)
+        {
+            // Get the Health script of the object
+            Health health = other.gameObject.GetComponent<Health>();
+
+            // Reduce the object's health by the damage of the laser beam
+            health.currentHealth -= damage;
+
+            // Destroy the laser beam
+            Destroy(gameObject);
+        }
     }
 }

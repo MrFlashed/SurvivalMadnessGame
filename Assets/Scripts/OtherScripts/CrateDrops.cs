@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class CrateDrops : MonoBehaviour
 {
+    public GameObject Drop;
     public void OnTriggerEnter2D(Collider2D collision)
     { 
         switch (collision.gameObject.tag)
         {
             case "Player":
-                switch (gameObject.name)
+                Debug.Log("Player");
+                switch (Drop.name)
                 {
-                    case "Berry":
-                        collision.GetComponent<PlayerHealth>().currentHealth += 100;
-                        Destroy(gameObject);
+                    case "Berry(Clone)":
+                        Debug.Log("berry");
+                        var PlayerHealthScript = collision.GetComponent<PlayerHealth>();
+                        PlayerHealthScript.currentHealth += 25;
+                        if (PlayerHealthScript.currentHealth > PlayerHealthScript.maxHealth)
+                        {
+                            PlayerHealthScript.currentHealth = PlayerHealthScript.maxHealth;
+                        }
+                        Destroy(Drop);
                         break;
                 }
                 break;

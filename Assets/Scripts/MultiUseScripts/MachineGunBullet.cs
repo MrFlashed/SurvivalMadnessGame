@@ -27,7 +27,7 @@ public class MachineGunBullet : MonoBehaviour
         bulletdamagef = WeaponScript.BulletDamage;
         Destroy(gameObject, 1f);
     }
-    public void OnCollisionEnter2D(Collision2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         //Get Scripts
         var MoneyScript = GameObject.Find("Money").GetComponent<Money>();
@@ -46,7 +46,7 @@ public class MachineGunBullet : MonoBehaviour
                 if (other.gameObject.GetComponent<Health>().currentHealth <= 0)
                 {
                     MoneyScript.TotalBalance += other.gameObject.GetComponent<Enemy>().MoneyReward;
-                    int randnum = Random.Range(0, 150);
+                    int randnum = Random.Range(0, 180);
                     if (randnum == 1)
                     {
                         Instantiate(Chest, transform.position, Quaternion.identity);
@@ -60,7 +60,7 @@ public class MachineGunBullet : MonoBehaviour
                 if (other.gameObject.GetComponent<Health>().currentHealth <= 0)
                 {
                     MoneyScript.TotalBalance += other.gameObject.GetComponent<EnemyNoLook>().MoneyReward;
-                    int randnum = Random.Range(0, 150);
+                    int randnum = Random.Range(0, 180);
                     if (randnum == 1)
                     {
                         Instantiate(Chest, transform.position, Quaternion.identity);
