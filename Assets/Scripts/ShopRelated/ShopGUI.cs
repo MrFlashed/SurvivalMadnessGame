@@ -25,7 +25,7 @@ public class ShopGUI : MonoBehaviour
                 UpgradeText.text = "Cooldown - 15% ($" + UpgradeCost + ")";
                 break;
             case "2ndPistol":
-                UpgradeText.text = "Unlock Second Pistol ($" + UpgradeCost + ")";
+                UpgradeText.text = "Unlock 2nd Pistol ($" + UpgradeCost + ")";
                 break;
             case "Camera":
                 UpgradeText.text = "Vision + 25% ($" + UpgradeCost + ")";

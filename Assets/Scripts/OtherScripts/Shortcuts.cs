@@ -12,7 +12,7 @@ public class Shortcuts : MonoBehaviour
     public void Update()
     {
         TimePassed += Time.deltaTime;
-        if (Input.GetKey(KeyCode.Escape) && TimePassed >= 0.1f)
+        if (Input.GetKey(KeyCode.Escape) && TimePassed >= 0.5f)
         {
             TimePassed = 0;
             if (Shop.activeInHierarchy == true)

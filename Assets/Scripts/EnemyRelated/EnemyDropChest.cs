@@ -81,28 +81,23 @@ public class EnemyDropChest : MonoBehaviour
             }
             else if (RandNum <= 7000)
             {
-                HealthScript.regenHealth += 0.2f;
-                BottomText.text = "regen +0.2HP/s";
+                HealthScript.regenHealth += 1f;
+                BottomText.text = "regen +1HP/s";
             }
             else if (RandNum <= 7500)
             {
-                HealthScript.regenHealth += 0.4f;
-                BottomText.text = "regen +0.4HP/s";
+                HealthScript.regenHealth += 2f;
+                BottomText.text = "regen +2HP/s";
             }
             else if (RandNum <= 7750)
             {
-                HealthScript.regenHealth += 0.6f;
-                BottomText.text = "regen +0.4HP/s";
+                HealthScript.regenHealth += 4f;
+                BottomText.text = "regen +4HP/s";
             }
             else if (RandNum <= 7900)
             {
-                HealthScript.regenHealth += 0.8f;
-                BottomText.text = "regen +0.8HP/s";
-            }
-            else if (RandNum <= 7900)
-            {
-                HealthScript.regenHealth += 1f;
-                BottomText.text = "regen +1HP/s";
+                HealthScript.regenHealth += 5f;
+                BottomText.text = "regen +5HP/s";
             }
             else if (RandNum <= 8500)
             {

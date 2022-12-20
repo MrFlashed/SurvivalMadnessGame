@@ -330,9 +330,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 927568909111969175, guid: 9f7c93c8d05c04c40a184b0a6b056ffc, type: 3}
   firePoint: {fileID: 3166879945390867171}
-  fireForce: 40
-  TimePerBullet: 0.3
-  BulletDamage: 5
+  fireForce: 37.5
+  TimePerBullet: 0.2
+  BulletDamage: 75
 --- !u!114 &3166879946086227036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,9 +347,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 927568909111969175, guid: 9f7c93c8d05c04c40a184b0a6b056ffc, type: 3}
   firePoint: {fileID: 3166879947027233263}
-  fireForce: 40
-  TimePerBullet: 0.3
-  BulletDamage: 5
+  fireForce: 37.5
+  TimePerBullet: 0.2
+  BulletDamage: 75
 --- !u!114 &3166879946086227037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,9 +364,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 927568909111969175, guid: 9f7c93c8d05c04c40a184b0a6b056ffc, type: 3}
   firePoint: {fileID: 3166879946437734531}
-  fireForce: 40
-  TimePerBullet: 0.3
-  BulletDamage: 5
+  fireForce: 37.5
+  TimePerBullet: 0.2
+  BulletDamage: 75
 --- !u!114 &3166879946086227026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,9 +381,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 927568909111969175, guid: 9f7c93c8d05c04c40a184b0a6b056ffc, type: 3}
   firePoint: {fileID: 3166879946896262281}
-  fireForce: 40
-  TimePerBullet: 0.3
-  BulletDamage: 5
+  fireForce: 37.5
+  TimePerBullet: 0.2
+  BulletDamage: 75
 --- !u!1 &4339923535285241779
 GameObject:
   m_ObjectHideFlags: 0
