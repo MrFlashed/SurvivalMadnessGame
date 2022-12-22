@@ -4158,12 +4158,69 @@ MonoBehaviour:
     - {fileID: 4156222054657940348, guid: 500988a4f9aa83f4ebeaa40b8c90290a, type: 3}
     spawnInterval: 10
   - waveName: Level 31
-    noOfEnemies: 200
+    noOfEnemies: 5
     typeOfEnemies:
     - {fileID: 8889601351058862694, guid: e4aa36dec1ac00e48b85f7261508cd43, type: 3}
-    - {fileID: 4156222054657940348, guid: dd335496515debb438d991a0237428f3, type: 3}
-    - {fileID: 4156222054657940348, guid: 500988a4f9aa83f4ebeaa40b8c90290a, type: 3}
+    spawnInterval: 10
+  - waveName: Level 32
+    noOfEnemies: 1000
+    typeOfEnemies:
+    - {fileID: 8889601351058862694, guid: 53c7f92c1c039694b8a4560b44b9fcb4, type: 3}
+    - {fileID: 8889601351058862694, guid: 0c07122031e2faf479a1ed292e7220d8, type: 3}
+    spawnInterval: 0.15
+  - waveName: Level 33
+    noOfEnemies: 750
+    typeOfEnemies:
+    - {fileID: 8889601351058862694, guid: a03a6717399f8364b96f64925269a001, type: 3}
+    - {fileID: 8889601351058862694, guid: 6f6d46bd441a0b44c8b840d0a434f594, type: 3}
+    spawnInterval: 0.2
+  - waveName: Level 34
+    noOfEnemies: 75
+    typeOfEnemies:
+    - {fileID: 8889601351058862694, guid: 1c054b7a329129f42894b02349d159c4, type: 3}
+    spawnInterval: 0.4
+  - waveName: Level 35
+    noOfEnemies: 200
+    typeOfEnemies:
+    - {fileID: 8889601351058862694, guid: 1c054b7a329129f42894b02349d159c4, type: 3}
+    - {fileID: 8889601351058862694, guid: 6f6d46bd441a0b44c8b840d0a434f594, type: 3}
+    - {fileID: 8889601351058862694, guid: 0c07122031e2faf479a1ed292e7220d8, type: 3}
     spawnInterval: 0.1
+  - waveName: Level 36
+    noOfEnemies: 3
+    typeOfEnemies:
+    - {fileID: 4156222054657940348, guid: dd335496515debb438d991a0237428f3, type: 3}
+    spawnInterval: 30
+  - waveName: Level 37
+    noOfEnemies: 300
+    typeOfEnemies:
+    - {fileID: 8889601351058862694, guid: 8d5371de79f34f04b817d743a8a6bc0d, type: 3}
+    spawnInterval: 0.1
+  - waveName: Level 38
+    noOfEnemies: 250
+    typeOfEnemies:
+    - {fileID: 8889601351058862694, guid: 1c054b7a329129f42894b02349d159c4, type: 3}
+    spawnInterval: 0.2
+  - waveName: Level 39
+    noOfEnemies: 1000
+    typeOfEnemies:
+    - {fileID: 8889601351058862694, guid: 1c054b7a329129f42894b02349d159c4, type: 3}
+    - {fileID: 8889601351058862694, guid: 6f6d46bd441a0b44c8b840d0a434f594, type: 3}
+    - {fileID: 8889601351058862694, guid: 0c07122031e2faf479a1ed292e7220d8, type: 3}
+    spawnInterval: 0.05
+  - waveName: Level 40
+    noOfEnemies: 500
+    typeOfEnemies:
+    - {fileID: 8889601351058862694, guid: 1c054b7a329129f42894b02349d159c4, type: 3}
+    - {fileID: 4156222054657940348, guid: 500988a4f9aa83f4ebeaa40b8c90290a, type: 3}
+    - {fileID: 4156222054657940348, guid: dd335496515debb438d991a0237428f3, type: 3}
+    - {fileID: 8889601351058862694, guid: e4aa36dec1ac00e48b85f7261508cd43, type: 3}
+    spawnInterval: 0.1
+  - waveName: Level 41
+    noOfEnemies: 200
+    typeOfEnemies:
+    - {fileID: 4156222054657940348, guid: 500988a4f9aa83f4ebeaa40b8c90290a, type: 3}
+    spawnInterval: 1
   spawnPoints:
   - {fileID: 1821201043}
   - {fileID: 1403684944}
@@ -14345,7 +14402,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1200, y: 550}
+  m_SizeDelta: {x: 1300, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1911568165
 MonoBehaviour:
@@ -14360,14 +14417,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 0.8862745}
+  m_Color: {r: 0.5471698, g: 0.39368957, b: 0.3019758, a: 0.9372549}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3a74ba14bec13c94591cd0c2d735f44a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14493,8 +14550,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -225}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -220}
+  m_SizeDelta: {x: 200, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1925487794
 MonoBehaviour:
@@ -14565,15 +14622,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.8862745}
+  m_Color: {r: 0.9245283, g: 0.391944, b: 0.3532396, a: 0.8862745}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 3a74ba14bec13c94591cd0c2d735f44a, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
